@@ -1,0 +1,18 @@
+# 依赖
+node_modules/
+
+# 密钥 —— 严禁提交
+ai-key.txt
+.env
+.env.*
+
+# 运行时数据
+chat.db
+chat.db-*
+public/uploads/
+
+# 日志与系统文件
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db

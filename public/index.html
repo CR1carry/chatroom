@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>计算机学习交流群</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="chatroom">
+    <!-- 顶部：群名 + 状态 + 工具按钮 -->
+    <header class="chat-header">
+      <div class="group-avatar">💻</div>
+      <div class="group-info">
+        <h1 class="group-name">计算机学习交流群</h1>
+        <p class="group-status">
+          <span id="status-dot" class="dot dot-off"></span>
+          <span id="status-text">连接中…</span>
+          <span class="header-online">· 在线 <span id="online-count-head">0</span></span>
+        </p>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="search-toggle" title="搜索聊天记录">🔍</button>
+        <button class="icon-btn" id="export-btn" title="导出聊天记录">📥</button>
+        <button class="icon-btn" id="theme-toggle" title="切换深色模式">🌙</button>
+      </div>
+    </header>
+
+    <!-- 搜索栏（默认隐藏） -->
+    <div class="search-bar" id="search-bar" hidden>
+      <input type="text" id="search-input" placeholder="搜索聊天记录，按 Enter 确认…" />
+      <button class="icon-btn" id="search-close" title="关闭搜索">✕</button>
+    </div>
+
+    <!-- 身份选择栏 -->
+    <div class="identity-bar">
+      <span class="identity-label">选择当前身份：</span>
+      <button class="identity-btn alice" data-user="Alice">Alice</button>
+      <button class="identity-btn bob" data-user="Bob">Bob</button>
+      <button class="identity-btn charlie" data-user="Charlie">Charlie</button>
+    </div>
+
+    <!-- 主体：聊天 + 成员面板 -->
+    <div class="main-area">
+      <div class="chat-column">
+        <main class="messages" id="messages"></main>
+
+        <div class="typing-indicator" id="typing-indicator" hidden>
+          <span class="typing-dots"><i></i><i></i><i></i></span>
+          <span id="typing-text">大肥鱼 正在输入…</span>
+        </div>
+
+        <footer class="input-bar">
+          <button class="icon-btn" id="emoji-btn" title="表情">😊</button>
+          <button class="icon-btn" id="image-btn" title="发送图片">🖼️</button>
+          <span class="current-user" id="current-user">Alice</span>
+          <input type="text" id="message-input" placeholder="输入消息，按 Enter 发送…" maxlength="2000" autocomplete="off" />
+          <button id="send-btn" class="send-btn">发送</button>
+          <input type="file" id="image-file" accept="image/*" hidden />
+        </footer>
+
+        <!-- 表情面板 -->
+        <div class="emoji-picker" id="emoji-picker" hidden></div>
+
+        <!-- @ 提醒候选 -->
+        <div class="mention-list" id="mention-list" hidden></div>
+      </div>
+
+      <aside class="members-panel">
+        <h3 class="members-title">群成员 <span class="online-count">在线 <span id="online-count">0</span></span></h3>
+        <ul id="members-list"></ul>
+      </aside>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
